@@ -19,7 +19,7 @@ package com.fdz.algo.sort;
 /**
  * Created by fengdianzhang on 16-11-4.
  */
-public abstract class Sort {
+public abstract class Sorter {
     public abstract void sort(int[] a);
 
     protected void swap(int[] a, int i, int j) {

@@ -17,6 +17,7 @@
 package com.fdz.algo.sort;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.algs4.stdlib.StdRandom;
@@ -29,16 +30,19 @@ import static org.junit.Assert.assertTrue;
  * Created by fengdianzhang on 16-11-4.
  */
 public class SortTest {
-    private final int[] array = new int[100];
+    private final int[] array = new int[50000];
     private final List<String> classNames = new ArrayList<>();
 
     @Before
     public void init() {
-        classNames.add("com.fdz.algo.sort.Insertion");
         classNames.add("com.fdz.algo.sort.Selection");
+        classNames.add("com.fdz.algo.sort.Insertion");
+        classNames.add("com.fdz.algo.sort.Insertion2");
+        classNames.add("com.fdz.algo.sort.Shell");
+        classNames.add("com.fdz.algo.sort.Merge");
 
-        for (int i = 0; i < 100; i++) {
-            array[i] = StdRandom.uniform(0, 100);
+        for (int i = 0; i < array.length; i++) {
+            array[i] = StdRandom.uniform(0, array.length);
         }
     }
 
@@ -47,14 +51,18 @@ public class SortTest {
         for (String name : classNames) {
             System.out.println("start to test " + name + "...");
             Class<?> clazz = Class.forName(name);
-            Sort sorter = (Sort) clazz.newInstance();
+            Sorter sorter = (Sorter) clazz.newInstance();
+            long start,end,sum = 0;
             for (int i = 0; i < 3; i++) {
                 StdRandom.shuffle(array);
+                start = System.currentTimeMillis();
                 sorter.sort(array);
-                assertTrue(i + 1 + "th failed...", isSorted(array));
+                end = System.currentTimeMillis();
+                sum += end - start;
+                assertTrue(i + 1 + "th failed...\nArray = " + Arrays.toString(array), isSorted(array));
                 System.out.println(i + 1 + "th passed...");
             }
-            System.out.println(name + " passed...\n");
+            System.out.println("All passed... cost " + sum / 3 + "  millis on average.\n");
         }
     }
 

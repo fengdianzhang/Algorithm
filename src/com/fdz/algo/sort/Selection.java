@@ -1,10 +1,9 @@
-
 package com.fdz.algo.sort;
 
 /**
  * Created by fengdianzhang on 16-11-4.
  */
-public class Selection extends Sort {
+public class Selection extends Sorter {
     @Override
     public void sort(int[] a) {
         for (int i = 0; i < a.length; i++) {
