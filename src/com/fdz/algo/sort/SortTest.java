@@ -30,7 +30,7 @@ import static org.junit.Assert.assertTrue;
  * Created by fengdianzhang on 16-11-4.
  */
 public class SortTest {
-    private final int[] array = new int[50000];
+    private final int[] array = new int[10];
     private final List<String> classNames = new ArrayList<>();
 
     @Before
@@ -40,6 +40,7 @@ public class SortTest {
         classNames.add("com.fdz.algo.sort.Insertion2");
         classNames.add("com.fdz.algo.sort.Shell");
         classNames.add("com.fdz.algo.sort.Merge");
+        classNames.add("com.fdz.algo.sort.Heap");
 
         for (int i = 0; i < array.length; i++) {
             array[i] = StdRandom.uniform(0, array.length);

@@ -1,4 +1,4 @@
-package com.fdz.algo;
+package com.fdz.algo.search;
 /**
  * Created by fengdianzhang on 16-11-3.
  */
