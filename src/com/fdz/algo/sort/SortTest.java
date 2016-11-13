@@ -30,7 +30,7 @@ import static org.junit.Assert.assertTrue;
  * Created by fengdianzhang on 16-11-4.
  */
 public class SortTest {
-    private final int[] array = new int[10];
+    private final int[] array = new int[100000];
     private final List<String> classNames = new ArrayList<>();
 
     @Before

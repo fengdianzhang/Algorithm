@@ -48,13 +48,15 @@ public class MinPQ {
 
     private void sink(int k) {
         while (k * 2 <= size) {
-            if (k * 2 == size || a[k * 2] < a[k * 2 + 1]) {
-                swap(k, k * 2);
-                k = k * 2;
-            } else {
-                swap(k, k * 2 + 1);
-                k = k * 2 + 1;
+            int j = k * 2;
+            if (j < size && a[j + 1] < a[j]) {
+                j++;
             }
+            if (a[k] <= a[j]) {
+                break;
+            }
+            swap(k,j);
+            k = j;
         }
     }
 
