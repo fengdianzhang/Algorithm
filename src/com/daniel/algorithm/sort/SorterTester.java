@@ -3,6 +3,7 @@ package com.daniel.algorithm.sort;
 import com.daniel.algorithm.Item;
 import com.daniel.algorithm.Utils;
 import com.daniel.algorithm.sort.impl.ArraysSorter;
+import com.daniel.algorithm.sort.impl.QuickSorter;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -13,7 +14,7 @@ import java.util.Arrays;
 public class SorterTester {
 
     private static final int ITEM_SIZE = 20;
-    private Item[] items;
+    private int[] items;
 
     @Before
     public void prepare() {
@@ -23,6 +24,11 @@ public class SorterTester {
     @Test
     public void arraysSorterTest() {
         sorterTest(ArraysSorter.class);
+    }
+
+    @Test
+    public void quickSorterTest() {
+        sorterTest(QuickSorter.class);
     }
 
     @After
