@@ -6,6 +6,7 @@ public class QuickSorter implements Sorter {
 
     @Override
     public void sort(int[] arr) {
+        // 为了避免退化成 N 的平方级别，可以在这随机打乱
         sort(arr, 0, arr.length - 1);
     }
 
